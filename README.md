@@ -2,14 +2,16 @@
 
 This project is scaffolded by [Yeoman](http://yeoman.io). See [generator-vars-django](https://github.com/VARIANTE/generator-vars-django.git) for more details.
 
-## Usage
+## Setup
 
 Install node modules if they are not already installed:
+
 ```
 $ npm install
 ```
 
 Initialize ```virtualenv``` if needed:
+
 ```
 $ virtualenv {path}
 ```
@@ -17,33 +19,45 @@ $ virtualenv {path}
 Add generated environment variables in ```./.secrets``` to ```{virtualenv_path}/bin/activate``` if needed.
 
 (Re)activate ```virtualenv```:
+
 ```
 $ source {virtualenv_path}/bin/activate
 ```
 
 Install ```pip``` dependencies using ```./requirements.txt``` they are not already installed:
+
 ```
 $ pip install -r requirements.txt
 ```
 
 Verify ```pip``` dependencies installed correctly under ```virtualenv```:
+
 ```
 $ which django-admin.py
 ```
 
-Update environment variables in ```{virtualenv_path}/bin/activate``` with new database configs.
+Generate a secret key for use with django, and add to your environment as such:
+
+```
+export DJANGO_SECRET_KEY="<secret key here>"
+```
+
+You can use any string for the secret key, even generate a random key [here](http://www.miniwebtool.com/django-secret-key-generator/)
 
 Apply initial migration:
+
 ```
 $ npm run migrate
 ```
 
 Test dev environment. You should see "Hello, World!":
+
 ```
 $ npm run dev
 ```
 
 Test prod environment. You should see "Hello, World!":
+
 ```
 $ npm run prod
 ```
